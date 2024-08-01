@@ -1,7 +1,10 @@
 import "./App.css";
-import Card from "./components/Card.jsx";
-import NavBar from "./components/Navbar.jsx";
-import PasswordInput from "./components/PasswordInput.jsx";
+import {
+  Card,
+  CurrencyConverter,
+  NavBar,
+  PasswordInput,
+} from "./components/Card.jsx";
 import quotes from "./db/quotes.js";
 
 const App = () => {
@@ -13,6 +16,7 @@ const App = () => {
       <NavBar />
       <Card quotes={quotes} />
       <PasswordInput />
+      <CurrencyConverter />
     </>
   );
 };
