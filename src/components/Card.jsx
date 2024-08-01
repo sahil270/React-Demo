@@ -7,7 +7,7 @@ function Card(props) {
   );
 
   return (
-    <div className='w-[60%] max-h-[400px] flex flex-col p-9'>
+    <div className='w-[60%] max-h-[400px] flex flex-col p-9 self-center'>
       <figure className='mx-auto p-4 text-center'>
         <svg
           className='w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600'

@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/Card.jsx";
 import NavBar from "./components/Navbar.jsx";
+import PasswordInput from "./components/PasswordInput.jsx";
 import quotes from "./db/quotes.js";
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
       </h1> */}
       <NavBar />
       <Card quotes={quotes} />
+      <PasswordInput />
     </>
   );
 };
