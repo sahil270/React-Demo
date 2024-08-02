@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  Card,
-  CurrencyConverter,
-  NavBar,
-  PasswordInput,
-} from "./components/Card.jsx";
+import { Card, CurrencyConverter, Navbar, PasswordInput } from "./components";
 import quotes from "./db/quotes.js";
 
 const App = () => {
@@ -13,7 +8,7 @@ const App = () => {
       {/* <h1 className='bg-green-400 rounded-xl p-4 mb-4 text-black'>
         Hello React + Vite + Tailwind
       </h1> */}
-      <NavBar />
+      <Navbar />
       <Card quotes={quotes} />
       <PasswordInput />
       <CurrencyConverter />
