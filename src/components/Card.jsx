@@ -1,9 +1,10 @@
 // import PropTypes from "prop-types";
 import { useState } from "react";
+import quotes from "../db/quotes";
 
-function Card(props) {
+function Card() {
   const [index, setIndex] = useState(
-    Math.floor(Math.random() * props?.quotes.length)
+    Math.floor(Math.random() * quotes?.length)
   );
 
   return (
@@ -20,7 +21,7 @@ function Card(props) {
         </svg>
         <blockquote>
           <p className='text-2xl italic font-medium text-gray-900 dark:text-white'>
-            &rdquo;{props?.quotes[index]}&ldquo;
+            &rdquo;{quotes[index]}&ldquo;
           </p>
         </blockquote>
       </figure>
@@ -29,9 +30,7 @@ function Card(props) {
         <button
           className='rounded-xl p-3 bg-green-400'
           onClick={() =>
-            setIndex((index) =>
-              index !== 0 ? index - 1 : props?.quotes.length - 1
-            )
+            setIndex((index) => (index !== 0 ? index - 1 : quotes?.length - 1))
           }
         >
           Previous
@@ -39,9 +38,7 @@ function Card(props) {
         <button
           className='rounded-xl p-3 bg-green-400'
           onClick={() =>
-            setIndex((index) =>
-              index !== props?.quotes.length - 1 ? index + 1 : 0
-            )
+            setIndex((index) => (index !== quotes?.length - 1 ? index + 1 : 0))
           }
         >
           Next
@@ -62,7 +59,5 @@ function Card(props) {
   </div>
 </div> */
 }
-
-Card.propTyps = Array;
 
 export default Card;
