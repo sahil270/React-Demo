@@ -1,6 +1,6 @@
 // import PropTypes from "prop-types";
 import { useState } from "react";
-import quotes from "../db/quotes";
+import quotes from "../../db/quotes";
 
 function Card() {
   const [index, setIndex] = useState(
@@ -59,5 +59,4 @@ function Card() {
   </div>
 </div> */
 }
-
 export default Card;

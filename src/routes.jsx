@@ -1,4 +1,10 @@
-import { Card, Navbar, CurrencyConverter, PasswordInput } from "./components";
+import {
+  Card,
+  Navbar,
+  CurrencyConverter,
+  PasswordInput,
+  TodoMain,
+} from "./components";
 import Layout from "./Layout";
 
 export default [
@@ -21,6 +27,10 @@ export default [
       {
         path: "/currency-converter",
         element: <CurrencyConverter />,
+      },
+      {
+        path: "/task-tracker",
+        element: <TodoMain />,
       },
     ],
   },

@@ -1,10 +1,11 @@
-import CurrencyInput from "./CurrencyInput";
-import CurrencyConverter from "./CurrencyConverter";
-import Card from "./Card";
-import Navbar from "./Navbar";
-import PasswordInput from "./PasswordInput";
-import Header from "./Header";
-import Footer from "./Footer";
+import CurrencyInput from "./currencyConverter/CurrencyInput";
+import CurrencyConverter from "./currencyConverter/CurrencyConverter";
+import Card from "./home/Card";
+import Navbar from "./bgchanger/Navbar";
+import PasswordInput from "./passwordGenerator/PasswordInput";
+import Header from "./common/Header";
+import Footer from "./common/Footer";
+import TodoMain from "./Todo/TodoMain";
 
 export {
   CurrencyInput,
@@ -14,4 +15,5 @@ export {
   PasswordInput,
   Header,
   Footer,
+  TodoMain,
 };

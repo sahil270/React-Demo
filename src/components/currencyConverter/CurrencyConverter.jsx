@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useCurrencyInfo from "../hooks/useCurrencyInfo";
+import useCurrencyInfo from "../../hooks/useCurrencyInfo";
 import CurrencyInput from "./CurrencyInput";
 
 function CurrencyConverter() {
