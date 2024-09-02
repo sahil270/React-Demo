@@ -6,6 +6,7 @@ import PasswordInput from "./passwordGenerator/PasswordInput";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import TodoMain from "./Todo/TodoMain";
+import ClassTodoComponent from "./ClassComponentDemo/ClassTodoMain";
 
 export {
   CurrencyInput,
@@ -16,4 +17,5 @@ export {
   Header,
   Footer,
   TodoMain,
+  ClassTodoComponent,
 };

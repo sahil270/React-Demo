@@ -3,7 +3,7 @@ import {
   Navbar,
   CurrencyConverter,
   PasswordInput,
-  TodoMain,
+  ClassTodoComponent,
 } from "./components";
 import Layout from "./Layout";
 
@@ -30,7 +30,7 @@ export default [
       },
       {
         path: "/task-tracker",
-        element: <TodoMain />,
+        element: <ClassTodoComponent />,
       },
     ],
   },
