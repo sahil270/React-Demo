@@ -14,13 +14,15 @@ class ClassTodoForm extends Component {
     return (
       <form
         className='flex'
-        onSubmit={() =>
+        onSubmit={(e) => {
+          e.preventDefault();
           addTask({
             id: Date.now(),
             isCompleted: false,
             message: message,
-          })
-        }
+          });
+          this.setState({ message: "" });
+        }}
       >
         <input
           type='text'
@@ -46,4 +48,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(ClassTodoForm);
+const ConnectedClassTodoForm = connect(null, mapDispatchToProps)(ClassTodoForm);
+
+export default ConnectedClassTodoForm;

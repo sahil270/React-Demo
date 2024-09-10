@@ -17,8 +17,6 @@ export const todoReducer = (state, action) => {
         tasks: state.tasks.filter((x) => x.id !== action.result),
       };
     case CONSTANTS.TOGGLE_COMPLETED:
-      console.log(action);
-
       return {
         tasks: state.tasks.map((x) =>
           x.id === action.result ? { ...x, isCompleted: !x.isCompleted } : x

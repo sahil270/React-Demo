@@ -1,7 +1,7 @@
 import { Component } from "react";
-import ClassTodoItem from "./ClassTodoItem";
-import ClassTodoForm from "./ClassTodoForm";
 import { connect } from "react-redux";
+import ConnectedClassTodoForm from "./ClassTodoForm";
+import ConnectedClassTodoItem from "./ClassTodoItem";
 
 class ClassTodoMain extends Component {
   constructor(props) {
@@ -9,6 +9,8 @@ class ClassTodoMain extends Component {
   }
 
   render() {
+    const { tasks } = this.props;
+
     return (
       <div className='min-h-screen py-8'>
         <div className='w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white'>
@@ -16,13 +18,13 @@ class ClassTodoMain extends Component {
             Manage Your Tasks
           </h1>
           <div className='mb-4'>
-            <ClassTodoForm />
+            <ConnectedClassTodoForm />
           </div>
           <div className='flex flex-wrap gap-y-3'>
             {
               /*Loop and Add TodoItem here */
-              this.props?.tasks.map((x) => (
-                <ClassTodoItem key={x.id} task={x} />
+              tasks.map((x) => (
+                <ConnectedClassTodoItem key={x.id} task={x} />
               ))
             }
           </div>

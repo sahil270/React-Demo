@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { todoActions } from "../../redux/reducers/action";
+import { connect } from "react-redux";
 
-export default class ClassTodoItem extends Component {
+class ClassTodoItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,22 +13,13 @@ export default class ClassTodoItem extends Component {
 
   render() {
     const { isCompleted, id } = this.props.task;
+    const { updateTask, deleteTask, toggleCompleted } = this.props;
     const { isEditable, message } = this.state;
-    const toggleCompleted = () => {
-      todoActions.toggleCompleted(id);
-      console.log(this.props);
-    };
 
     const editTask = () => {
-      todoActions.updateTask(id, { message, id, isCompleted });
+      updateTask(id, message, isCompleted);
       this.setState({ ...this.state, isEditable: !isEditable });
     };
-
-    const deleteTask = () => {
-      todoActions.deleteTask(id);
-    };
-
-    console.log({ ...this.props.task });
 
     return (
       <div
@@ -40,7 +32,9 @@ export default class ClassTodoItem extends Component {
           type='checkbox'
           className='cursor-pointer'
           checked={isCompleted}
-          onChange={toggleCompleted}
+          onChange={() => {
+            toggleCompleted(id);
+          }}
         />
         <input
           type='text'
@@ -51,6 +45,17 @@ export default class ClassTodoItem extends Component {
           onChange={(e) =>
             this.setState({ ...this.state, message: e.target.value })
           }
+          onKeyDown={(e) => {
+            if (isCompleted || e.key !== "Enter") return;
+
+            if (isEditable) {
+              editTask();
+            } else
+              this.setState({
+                ...this.state,
+                isEditable: !isEditable,
+              });
+          }}
           readOnly={!isEditable}
         />
         {/* Edit, Save Button */}
@@ -74,7 +79,7 @@ export default class ClassTodoItem extends Component {
         {/* Delete Todo Button */}
         <button
           className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0'
-          onClick={deleteTask}
+          onClick={() => deleteTask(id)}
         >
           ❌
         </button>
@@ -82,3 +87,23 @@ export default class ClassTodoItem extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateTask: (id, message, isCompleted) =>
+      dispatch(todoActions.updateTask(id, { message, id, isCompleted })),
+    deleteTask: (id) => dispatch(todoActions.deleteTask(id)),
+    toggleCompleted: (id) => dispatch(todoActions.toggleCompleted(id)),
+  };
+};
+
+const mapStateToProps = (state) => ({
+  tasks: state.tasks,
+});
+
+const ConnectedClassTodoItem = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClassTodoItem);
+
+export default ConnectedClassTodoItem;
